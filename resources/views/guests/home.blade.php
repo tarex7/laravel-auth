@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
+        <script defer src="{{ asset('js/front.js') }}"></script>
 
         <!-- Styles -->
         <style>
@@ -79,13 +80,7 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    <h1>Coming soon...</h1>
-                </div>
-
-                
-            </div>
+            <div id="root"></div>
         </div>
     </body>
 </html>

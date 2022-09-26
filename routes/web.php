@@ -42,6 +42,10 @@ Route::middleware('auth')
     
    // Route::resoure('posts', 'PostController');
 
+   Route::get('/{any}', function() {
+    abort('404');
+   })->where('any','.*');
+
 });
 
 Route::get('/{any?}', function() {
