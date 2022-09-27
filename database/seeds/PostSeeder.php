@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use Faker\Generator as Faker;
-use App\Post;
+use App\Models\Post;
 
 
 
@@ -24,6 +24,7 @@ class PostSeeder extends Seeder
             $post->title = $faker->text(50);
             $post->text = $faker->paragraphs(2,true);
             $post->url = $faker->imageUrl(300, 200, 'animals', true);
+            $post->author = $faker->name();
      
             $post->save();
         }

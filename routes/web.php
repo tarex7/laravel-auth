@@ -40,7 +40,7 @@ Route::middleware('auth')
     // Route::put('/posts/{post}', 'PostController@update')->name('posts.update');
     // Route::delete('/posts/{post}', 'PostController@destroy')->name('posts.destroy');
     
-   // Route::resoure('posts', 'PostController');
+   Route::resource('posts', 'PostController');
 
    Route::get('/{any}', function() {
     abort('404');
