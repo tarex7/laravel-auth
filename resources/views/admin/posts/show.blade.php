@@ -18,7 +18,14 @@
         </div>
         
         <footer class="d-flex align-items-center justify-content-end px-5">
-        <a href="{{ route('admin.posts.index') }}" class="btn btn-primary">Indietro</a>
+        <a href="{{ route('admin.posts.index') }}" class="btn btn-primary mx-2">Indietro</a>
+        <td><a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-warning mx-3"><i class="fa-solid fa-eye mx-2"></i>Modifica</a></td>
+        <td><form action="{{ route('admin.posts.destroy',$post) }}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash mx-2"></i>Elimina</button>
+        </form></td>
+
         </footer>
 
 </div>

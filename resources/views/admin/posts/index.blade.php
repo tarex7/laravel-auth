@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container-fluid">
     <header>
         <h1 class="text-center">Lista post</h1>
@@ -13,7 +14,7 @@
             <th scope="col">Creato</th>
             <th scope="col">Ultima modifica</th>
             <th scope="col">Autore</th>
-            <th scope="col">Azioni</th>
+            <th  colspan="6" scope="col"></th>
           </tr>
         </thead>
         <tbody>
@@ -24,7 +25,13 @@
               <td>{{ $post->created_at}}</td>
               <td>{{ $post->updated_at}}</td>
               <td>{{ $post->author}}</td>
-              <td><a href="{{ route('admin.posts.show', $post) }}" class="btn btn-primary"><i class="fa-solid fa-eye mx-1"></i>Vedi</a></td>
+              <td><a href="{{ route('admin.posts.show', $post) }}" class="btn btn-primary"><i class="fa-solid fa-eye mx-2"></i>Vedi</a></td>
+              <td><a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-warning"><i class="fa-solid fa-eye mx-2"></i>Modifica</a></td>
+              <td><form action="{{ route('admin.posts.destroy',$post) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit"><i class="fa-solid fa-trash mx-2"></i>Elimina</button>
+            </form></td>
             </tr>
                 
             @empty
