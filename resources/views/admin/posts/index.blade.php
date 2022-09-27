@@ -3,8 +3,9 @@
 @section('content')
 
 <div class="container-fluid">
-    <header>
+    <header class="d-flex justify-content-between mb-3">
         <h1 class="text-center">Lista post</h1>
+        <a href="{{ route('admin.posts.create') }}" class="btn btn-primary px-5">Crea post</a>
     </header>
     <table class="table table-dark">
         <thead>

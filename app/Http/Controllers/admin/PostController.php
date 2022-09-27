@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.posts.create');
     }
 
     /**
@@ -37,7 +37,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $post = new Post();
+
+        $post->fill($data);
+        $post->author = "admin";
+
+        $post->save();
+
+      return redirect()->route('admin.posts.index')
+      ->with('message','Post creato con successo')
+      ->with('type','success');
     }
 
     /**
@@ -57,9 +68,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('admin.posts.edit', $post);
     }
 
     /**
