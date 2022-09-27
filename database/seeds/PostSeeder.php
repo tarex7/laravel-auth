@@ -22,7 +22,7 @@ class PostSeeder extends Seeder
             $post = new Post;
      
             $post->title = $faker->text(50);
-            $post->text = $faker->paragraphs(2,true);
+            $post->text = $faker->paragraphs(8,true);
             $post->url = $faker->imageUrl(300, 200, 'animals', true);
             $post->author = $faker->name();
      
