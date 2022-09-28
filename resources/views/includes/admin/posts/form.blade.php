@@ -25,19 +25,19 @@
                         <textarea type="text" class="form-control" id="content" name="text"  cols="30" rows="10">{{  $post->text, old('text') }}</textarea>
                       </div>
                    </div>
-                    <div class="col-11">
+                    <div class="col-10">
                         <div class="form-group">
                             <label for="url">Immagine</label>
                             <input type="url" class="form-control" id="url" name="url" value="{{ $post->url, old('url') }}">
                           </div>
                     </div>
-                    <div class="col-1">
+                    <div class="col-2">
                        <img class="img-fluid" src="{{ $post->url ?? 'https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png' }}" alt="preview" id="preview">
                     </div>
                     
         </div>
-        <footer class="d-flex justify-content-between">
-            <a href="{{ route('admin.posts.index') }}" class="btn btn-secondary">Indietro</a>
-            <button class="btn btn-success" type="submit">Salva</button>
+        <footer class="d-flex justify-content-between my-5">
+            <a href="{{ route('admin.posts.index') }}" class="btn btn-secondary p-3 d-flex"><i class="fa-solid fa-rotate-left fa-2x mr-2"></i><h3>Indietro</h3></a>
+            <button class="btn btn-success p-3 d-flex" type="submit"><i class="fa-regular fa-floppy-disk mr-2 fa-2x"></i><h3>Salva</h3></button>
         </footer>
         </form>

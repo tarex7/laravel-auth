@@ -4,8 +4,8 @@
 
 <div class="container-fluid">
     <header class="d-flex justify-content-between mb-3">
-        <h1 class="text-center">Lista post</h1>
-        <a href="{{ route('admin.posts.create') }}" class="btn btn-primary px-5">Crea post</a>
+        <h1>Lista post</h1>
+        <a href="{{ route('admin.posts.create') }}" class="btn btn-success p-3 d-flex"><i class="fa-solid fa-plus mx-3 fa-2x"></i><h3 class="mr-2">Crea post</h3></a>
     </header>
     <table class="table table-dark">
         <thead>
