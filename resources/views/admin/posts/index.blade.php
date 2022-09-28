@@ -14,7 +14,6 @@
             <th scope="col">Titolo</th>
             <th scope="col">Creato</th>
             <th scope="col">Ultima modifica</th>
-            <th scope="col">Autore</th>
             <th  colspan="6" scope="col"></th>
           </tr>
         </thead>
@@ -25,7 +24,6 @@
               <td>{{ $post->title}}</td>
               <td>{{ $post->created_at}}</td>
               <td>{{ $post->updated_at}}</td>
-              <td>{{ $post->author}}</td>
               <td><a href="{{ route('admin.posts.show', $post) }}" class="btn btn-primary"><i class="fa-solid fa-eye mx-2"></i>Vedi</a></td>
               <td><a href="{{ route('admin.posts.edit', $post) }}" class="btn btn-warning"><i class="fa-solid fa-eye mx-2"></i>Modifica</a></td>
               <td><form action="{{ route('admin.posts.destroy',$post) }}" method="POST">

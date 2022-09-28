@@ -1,32 +1,34 @@
 
-@extends('layouts.app')
 
-@section('content')
+@if($post->exists) 
+<form action="{{ route('admin.posts.update', $post) }}" method="POST">
+@method('PUT')
+@else
+<form action="{{ route('admin.posts.store') }}" method="POST">
+
+@endif
 
 
-
-<div class="container-fluid">
-    <form action="{{ route('admin.posts.store') }}" method="POST">
         @csrf
         <div class="row">
             <div class="col-12">
                 <form>
 
                     <div class="form-group">
-                      <label for="titolo">Titolo</label>
-                      <input type="text" class="form-control" id="titolo" name="title" required minlength="5" maxlength="50" value="{{ old('title'), $post->title }}">
+                      <label for="title">Titolo</label>
+                      <input type="text" class="form-control" id="title" name="title" required minlength="5" maxlength="50" value="{{  $post->title, old('title') }}">
                     </div>
                 </div>
                    <div class="col-12">
                     <div class="form-group">
                         <label for="content">Contenuto</label>
-                        <textarea type="text" class="form-control" id="content" name="text"  cols="30" rows="10">{{ old('text'), $post->text }}</textarea>
+                        <textarea type="text" class="form-control" id="content" name="text"  cols="30" rows="10">{{  $post->text, old('text') }}</textarea>
                       </div>
                    </div>
                     <div class="col-11">
                         <div class="form-group">
                             <label for="url">Immagine</label>
-                            <input type="url" class="form-control" id="url" name="url" value="{{ old('url'),$post->url }}">
+                            <input type="url" class="form-control" id="url" name="url" value="{{ $post->url, old('url') }}">
                           </div>
                     </div>
                     <div class="col-1">
@@ -39,5 +41,3 @@
             <button class="btn btn-success" type="submit">Salva</button>
         </footer>
         </form>
-</div>
-@endsection

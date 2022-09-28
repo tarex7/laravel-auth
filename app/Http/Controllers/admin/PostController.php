@@ -43,7 +43,6 @@ class PostController extends Controller
         $post = new Post();
 
         $post->fill($data);
-        $post->author = "admin";
 
         $post->save();
 
@@ -81,9 +80,19 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Post $post)
     {
-        //
+        $data = $request->all();
+
+        
+
+        $post->fill($data);
+
+        $post->update();
+
+      return redirect()->route('admin.posts.show', $post)
+      ->with('message','Post modificato con successo')
+      ->with('type','success');
     }
 
     /**

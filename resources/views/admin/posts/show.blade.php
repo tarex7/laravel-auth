@@ -12,7 +12,6 @@
             <img class="float-left mr-3" src="{{ $post->url }}" alt="image-preview">
             
             <p >{{ $post->text }}</p>
-            <p><strong>Autore:</strong> {{ $post->author }}</p>
             <p ><strong>Creato il:</strong> {{ $post->created_at }}</p>
             <p ><strong>Modificato il:</strong> {{ $post->updated_at }}</p>
         </div>
