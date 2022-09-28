@@ -12,6 +12,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Titolo</th>
+            <th scope="col">Categoria</th>
             <th scope="col">Creato</th>
             <th scope="col">Ultima modifica</th>
             <th  colspan="6" scope="col"></th>
@@ -21,7 +22,10 @@
             @forelse ($posts as $post)
             <tr>
               <th scope="row">{{ $post->id}}</th>
+
               <td>{{ $post->title}}</td>
+              
+              <td>@if($post->category){{ $post->category->label }} @else Nessuna @endif</td>
               <td>{{ $post->created_at}}</td>
               <td>{{ $post->updated_at}}</td>
               <td><a href="{{ route('admin.posts.show', $post) }}" class="btn btn-primary"><i class="fa-solid fa-eye mx-2"></i>Vedi</a></td>

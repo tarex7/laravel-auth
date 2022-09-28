@@ -14,6 +14,7 @@
             <p >{{ $post->text }}</p>
             <p ><strong>Creato il:</strong> {{ $post->created_at }}</p>
             <p ><strong>Modificato il:</strong> {{ $post->updated_at }}</p>
+            <p ><strong>Categoria: </strong> {{ $post->category->label }}</p>
         </div>
         
         <footer class="d-flex align-items-center justify-content-end px-5">

@@ -16,12 +16,15 @@ class AddCategoryIdToPostsTable extends Migration
         Schema::table('posts', function (Blueprint $table) {
             //definisco colonna
             //aggiungo colonna category_id alla tabella posts, sarà con valore nullable e inserita dopo colonna id 
-            $table->unsignedBigInteger('category_id')->nullable()->after('id');
+            //$table->unsignedBigInteger('category_id')->nullable()->after('id');
 
             //definisco foreign key
             //questa colonna sarà una foreign key e si riferirà alla colonna id della tabella categories, 
             //in caso di cancellazione della categoria collegata a quel post i post non vengono cancellati 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+           // $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
+
+            //versione compatta definisce colonna e mette chiave
+            $table->foreignId('category_id')->constrained();
         });
     }
 
