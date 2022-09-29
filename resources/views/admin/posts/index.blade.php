@@ -12,6 +12,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Titolo</th>
+            <th scope="col">Autore</th>
             <th scope="col">Categoria</th>
             <th scope="col">Creato</th>
             <th scope="col">Ultima modifica</th>
@@ -24,6 +25,7 @@
               <th scope="row">{{ $post->id}}</th>
 
               <td>{{ $post->title}}</td>
+              <td>{{ $post->user_id}}</td>
               
               <td>@if($post->category){{ $post->category->label }} @else Nessuna @endif</td>
               <td>{{ $post->created_at}}</td>

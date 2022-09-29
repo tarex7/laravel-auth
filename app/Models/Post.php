@@ -12,4 +12,11 @@ class Post extends Model
         //Relazione posts -> category = debole -> forte | many to one
         return $this->belongsTo('App\Models\Category');
     }
+
+    public function user () {
+        
+        return $this->belongsTo('App\User');
+    }
+
+
 }
