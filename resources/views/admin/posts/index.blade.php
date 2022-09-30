@@ -25,7 +25,7 @@
               <th scope="row">{{ $post->id}}</th>
 
               <td>{{ $post->title}}</td>
-              <td>{{ $post->user_id}}</td>
+              <td>@if( $post->user){{ $post->user->name}} @else Anonimo @endif</td>
               
               <td>@if($post->category){{ $post->category->label }} @else Nessuna @endif</td>
               <td>{{ $post->created_at}}</td>

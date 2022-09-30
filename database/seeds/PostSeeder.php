@@ -24,14 +24,15 @@ class PostSeeder extends Seeder
 
         for($i = 0; $i < 10; $i++) {
 
-            $post = new Post;
-            $post->category_id = Arr::random($categories_ids);
-            $post->user_id = user->id;
-            $post->title = $faker->text(50);
-            $post->text = $faker->paragraphs(8,true);
-            $post->url = $faker->imageUrl(300, 200, 'animals', true);
+            $new_post = new Post();
+
+            $new_post->title = $faker->text(50);
+            $new_post->category_id = Arr::random($categories_ids);
+            $new_post->user_id = Arr::random($users_ids);
+            $new_post->text = $faker->paragraphs(8,true);
+            $new_post->image = $faker->imageUrl(300, 200, 'animals', true);
      
-            $post->save();
+            $new_post->save();
         }
     }
 }

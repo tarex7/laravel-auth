@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ['title','url','text','category_id'];
+    protected $fillable = ['title','image','text','category_id', ];
 
     public function category () {
         //Relazione posts -> category = debole -> forte | many to one

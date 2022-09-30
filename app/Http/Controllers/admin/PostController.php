@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -30,6 +31,7 @@ class PostController extends Controller
         $post = new Post();
         //$categories = Category::all();
         $categories = Category::select('id','label')->get();
+
         return view('admin.posts.create', compact('post','categories'));
     }
 
@@ -46,6 +48,7 @@ class PostController extends Controller
         $post = new Post();
 
         $post->fill($data);
+        $post->user_id = Auth::id();
 
         $post->save();
 
