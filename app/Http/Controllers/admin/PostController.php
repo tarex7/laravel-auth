@@ -45,6 +45,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+       dd($request->all());
         $data = $request->all();
 
         $post = new Post();
@@ -81,8 +82,9 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $categories = Category::select('id','label')->get();
+        $tags = Tag::select('id','label')->get();
 
-        return view('admin.posts.edit', compact('post','categories'));
+        return view('admin.posts.edit', compact('post','categories','tags'));
     }
 
     /**
