@@ -14,6 +14,19 @@
                     <label for="title">Titolo</label>
                     <input type="text" class="form-control" id="title" name="title" required minlength="5" maxlength="50" value="{{  $post->title, old('title') }}">
                 </div>
+
+                <div class="col-12">
+                    <h4>Tags</h4>
+                    @if(count($tags))
+                    <div class="d-flex py-4">
+                       @foreach ($tags as $tag)
+                           <input class="mx-1" type="checkbox" name="" id="{{ $tag->label }}">
+                           <label class="mr-5 mb-0" for="{{ $tag->label }}">{{ $tag->label }}</label>
+                       @endforeach
+                       @endif
+                    </div>
+                </div>
+
             </div>
             <div class="col-4">
                 <div class="form-group">
