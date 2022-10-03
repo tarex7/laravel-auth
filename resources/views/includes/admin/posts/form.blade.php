@@ -25,8 +25,8 @@
                              type="checkbox" 
                              id="tag-{{ $tag->label }}"
                              value="{{ $tag->id }}"
-                             name="tags[]">
-                              @if(in_array($tag->id, old('tags', []))) checked @endif 
+                             name="tags[]"
+                              @if(in_array($tag->id, old('tags', $prev_tags ))) checked @endif >
                             <label class="form-check-label mr-5 mb-0" for="tag-{{ $tag->label }}">{{ $tag->label }}</label>
                           </div>
                        @endforeach

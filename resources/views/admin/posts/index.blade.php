@@ -12,6 +12,7 @@
           <tr>
             <th scope="col">#</th>
             <th scope="col">Titolo</th>
+            <th scope="col">Tag</th>
             <th scope="col">Autore</th>
             <th scope="col">Categoria</th>
             <th scope="col">Creato</th>
@@ -25,8 +26,14 @@
               <th scope="row">{{ $post->id}}</th>
 
               <td>{{ $post->title}}</td>
+              <td>
+                @forelse ($post->tags as $tag)
+                    <p style="background-color: {{ $tag->color }}" class="badge">{{$tag->label}}</p>
+                @empty
+                   - 
+                @endforelse
+              </td>
               <td>@if( $post->user){{ $post->user->name}} @else Anonimo @endif</td>
-              
               <td>@if($post->category){{ $post->category->label }} @else Nessuna @endif</td>
               <td>{{ $post->created_at}}</td>
               <td>{{ $post->updated_at}}</td>

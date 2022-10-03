@@ -19,7 +19,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
-        return view('admin.posts.index', compact('posts'));
+        $tags = Tag::select('id','label','color')->get();
+
+        return view('admin.posts.index', compact('posts','tags'));
     }
 
     /**
@@ -33,8 +35,9 @@ class PostController extends Controller
         //$categories = Category::all();
         $tags = Tag::select('id','label')->get();
         $categories = Category::select('id','label')->get();
+        $prev_tags = []; 
 
-        return view('admin.posts.create', compact('post','categories','tags'));
+        return view('admin.posts.create', compact('post','categories','tags','prev_tags'));
     }
 
     /**
@@ -45,7 +48,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-       dd($request->all());
+        //dd($request->all());
         $data = $request->all();
 
         $post = new Post();
@@ -54,6 +57,11 @@ class PostController extends Controller
         $post->user_id = Auth::id();
 
         $post->save();
+
+        if(array_key_exists('tags', $data)) {
+
+            $post->tags()->attach($data['tags']);
+        }
 
       return redirect()->route('admin.posts.index')
       ->with('message','Post creato con successo')
@@ -69,8 +77,9 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $categories = Category::select('id','label')->get();
+        $tags = Tag::select('id','label','color')->get();
 
-        return view('admin.posts.show', compact('post','categories'));
+        return view('admin.posts.show', compact('post','categories','tags'));
     }
 
     /**
@@ -83,8 +92,9 @@ class PostController extends Controller
     {
         $categories = Category::select('id','label')->get();
         $tags = Tag::select('id','label')->get();
+        $prev_tags = $post->tags->pluck('id')->toArray(); 
 
-        return view('admin.posts.edit', compact('post','categories','tags'));
+        return view('admin.posts.edit', compact('post','categories','tags','prev_tags'));
     }
 
     /**

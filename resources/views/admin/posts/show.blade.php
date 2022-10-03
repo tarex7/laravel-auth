@@ -14,6 +14,12 @@
             <p >{{ $post->text }}</p>
             <p ><strong>Creato il:</strong> {{ $post->created_at }}</p>
             <p ><strong>Modificato il:</strong> {{ $post->updated_at }}</p>
+            <p ><strong>Tags:</strong>
+                 @forelse ($tags as $tag)
+                <p class="badge text-white p-2 mx-1" style="background-color: {{ $tag->color }}">{{ $tag->label }}</p>
+            @empty
+                Nessun Tag
+            @endforelse</p>
             <p ><strong>Categoria: </strong>  @if($post->category){{ $post->category->label }} @else Nessuna @endif</p>
         </div>
         
